@@ -26,8 +26,13 @@ yarn-error.log*
 flask-backend-shopping-cart-demo/venv
 flask-backend-shopping-cart-demo/.idea
 
+
+#Mongo Database files
 #mongo URI
 flask-backend-shopping-cart-demo/mongo-database/mongoDBURI.py
 
 #local json database file
 flask-backend-shopping-cart-demo/mongo-database/dataset.json
+
+#temporary work python file
+flask-backend-shopping-cart-demo/mongo-database/temp.py
