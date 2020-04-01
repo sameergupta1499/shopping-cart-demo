@@ -2,6 +2,14 @@ from flask import Flask, jsonify, request
 import json
 
 app = Flask(__name__)
+requestDict = {
+        "RequestType": "GetBrandsName",                    # possible values are GetProductData and GetBrandsName
+        "Filters":[] ,     #Possible Values PriceAscending,PriceDescending,BrandsFilter .    # All string type, it just indicates what filter have been applied.
+        "BrandsFilter": [],                                          #will only be present in the request if BrandsFilterExists.
+        "CurrentPage": 1,
+        "ProductPerPage": 50
+    }
+
 
 @app.route('/', methods=('GET', 'POST'))
 def hello_world():

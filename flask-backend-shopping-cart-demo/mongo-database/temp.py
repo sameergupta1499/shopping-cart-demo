@@ -1,6 +1,7 @@
 from app import requestDB
 
 requestDict = {
+        "RequestType": "GetBrandsName",                    # possible values are GetProductData and GetBrandsName
         "Filters":["PriceDescending","BrandsFilter"] ,     #Possible Values PriceAscending,PriceDescending,BrandsFilter .    # All string type, it just indicates what filter have been applied.
         "BrandsFilter": ["Samsung","Mi"],                                          #will only be present in the request if BrandsFilterExists.
         "CurrentPage": 1,

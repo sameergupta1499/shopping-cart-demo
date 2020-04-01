@@ -5,6 +5,8 @@ from mongoDBURI import mongoDBURI
 
 
 
+
+
 ###################################################create DB if DB doesn't exist##############################################################
 def checkDBExist(client):
     dblist = client.list_database_names()  # Get list of DB in the mongoDB
@@ -15,6 +17,7 @@ def checkDBExist(client):
 
 def requestDB(requestDict):
     # connection to the mongodb.com cluster
+    print(type(requestDict))
     client = MongoClient(mongoDBURI)  # add your db string
     checkDBExist(client)              #create db if doesn't exists
     shoppingDB = client["shopping-cart-db"]
@@ -27,7 +30,15 @@ def requestDB(requestDict):
     skipValue=productPerPage*(requestDict["CurrentPage"]  -1)
 
 
-    ############## When No Filter is applied.##################
+    ########################################## Get Brands Name Only ########################################
+    if requestDict["RequestType"] == "GetBrandsName":
+        productsCursor = phoneCollection.distinct("Brand_name")
+        responseDict["Products"] = productsCursor
+        responseDict["TotalProducts"] = len(productsCursor)
+        return responseDict
+
+
+    ####################### When No Filter is applied.########################
     if filters == []:
         productsCursor = phoneCollection.find().skip(skipValue).limit(productPerPage)
         responseDict["TotalProducts"] = phoneCollection.find().count()
