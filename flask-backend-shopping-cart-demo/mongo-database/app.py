@@ -1,28 +1,24 @@
 from pymongo import MongoClient
-from createInitialDBFromJson import getDataJson,createDB
+from createInitialDBFromJson import createDB
 from mongoDBURI import mongoDBURI
-import json
 
-####################################################### DELETE AFTER DEVELOPMENT#########################################################
-requestDict = {
-        "Filters":["PriceDescending"] ,     #Possible Values PriceAscending,PriceDescending,BrandsFilter .    # All string type, it just indicates what filter have been applied.
-        "BrandsFilter": ["Samsung","Mi"],                                          #will only be present in the request if BrandsFilterExists.
-        "CurrentPage": 1,
-        "ProductPerPage": 5
-    }
-####################################################### DELETE AFTER DEVELOPMENT#########################################################
 
-#connection to the mongodb.com cluster
-client = MongoClient(mongoDBURI)             #add your db string
-dblist = client.list_database_names()        #Get list of DB in the mongoDB
 
-#create DB if DB doesn't exist
-if "shopping-cart-db" not in dblist:
-    createDB(client)                      # createDB() is a function in createInitialDBFromJson.py file
+
+###################################################create DB if DB doesn't exist##############################################################
+def checkDBExist(client):
+    dblist = client.list_database_names()  # Get list of DB in the mongoDB
+    if "shopping-cart-db" not in dblist:
+        createDB(client)                      # createDB() is a function in createInitialDBFromJson.py file
 
 ################################################################# DB EXISTS######################################################################################
 
-def requestDB(requestDict,phoneCollection):
+def requestDB(requestDict):
+    # connection to the mongodb.com cluster
+    client = MongoClient(mongoDBURI)  # add your db string
+    checkDBExist(client)              #create db if doesn't exists
+    shoppingDB = client["shopping-cart-db"]
+    phoneCollection = shoppingDB["phones"]
     #print(requestDict,phoneCollection)
     responseDict={"Products": [],
                   "TotalProducts": 0}
@@ -40,13 +36,13 @@ def requestDB(requestDict,phoneCollection):
         brands = requestDict["BrandsFilter"]
         ############################ Only BrandsFilter is applied###############################
         if "PriceAscending" not in filters and "PriceDescending" not in filters:
-            print("out")
+            #print("out")
             query = {"Brand_name": {"$in": brands}}
             productsCursor = phoneCollection.find(query).skip(skipValue).limit(productPerPage)
             responseDict["TotalProducts"] = phoneCollection.find(query).count()
         ############################ BrandsFilter with PriceAscending or PriceDescending################################
         elif "PriceAscending" in filters or "PriceDescending" in filters:
-            print("in")
+            #print("in")
             # 1 means Ascending order and -1 means descending order for $sort key
 
             query = [{'$match': {"Brand_name": {"$in": brands}}},
@@ -54,7 +50,7 @@ def requestDB(requestDict,phoneCollection):
                      {'$skip': skipValue},
                      {'$limit': productPerPage}
                      ]
-            print(query)
+            #print(query)
             queryTotalProducts = [{'$match': {"Brand_name": {"$in": brands}}},
                      {'$sort': {'Product_price': 1 if "PriceAscending" in filters else -1  }},     #wil give 1 if "PriceAscending" exist else -1
                      {'$group': {'_id': None,'count': {'$sum': 1 } }}
@@ -71,15 +67,10 @@ def requestDB(requestDict,phoneCollection):
     #add products into responseDict
     for product in productsCursor:
         responseDict["Products"].append(product)
-    return responseDict
+    return responseDict     # requestDict is of dictionary type contains all the details about the dictionary.
 
 
-    #requestType = getRequestType(requestDict)      #DELETE IT IF QUERY STRING DONE
-
-shoppingDB = client["shopping-cart-db"]
-phoneCollection = shoppingDB["phones"]
-responseDict = requestDB(requestDict,phoneCollection)                # requestDict is of dictionary type contains all the details about the dictionary.
-
+"""
 #################################delete after development completed####################################
 with open('export.json',  'w') as outfile:
     #write json data into dataset.json file(it creates new json file)
@@ -89,4 +80,4 @@ with open('export.json',  'w') as outfile:
 
 print("The database exists.")
 
-
+"""
