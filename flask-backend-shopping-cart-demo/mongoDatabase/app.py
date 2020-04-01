@@ -1,9 +1,6 @@
 from pymongo import MongoClient
-from createInitialDBFromJson import createDB
-from mongoDBURI import mongoDBURI
-
-
-
+from .createInitialDBFromJson import createDB
+from .mongoDBURI import mongoDBURI
 
 
 
@@ -17,7 +14,7 @@ def checkDBExist(client):
 
 def requestDB(requestDict):
     # connection to the mongodb.com cluster
-    print(type(requestDict))
+    #print(type(requestDict))
     client = MongoClient(mongoDBURI)  # add your db string
     checkDBExist(client)              #create db if doesn't exists
     shoppingDB = client["shopping-cart-db"]
@@ -25,7 +22,7 @@ def requestDB(requestDict):
     #print(requestDict,phoneCollection)
     responseDict={"Products": [],
                   "TotalProducts": 0}
-    filters=requestDict["Filters"]
+    filters = requestDict["Filters"]
     productPerPage=requestDict["ProductPerPage"]
     skipValue=productPerPage*(requestDict["CurrentPage"]  -1)
 

@@ -1,20 +1,32 @@
 from flask import Flask, jsonify, request
+from mongoDatabase.app import requestDB
 import json
 
-app = Flask(__name__)
 requestDict = {
-        "RequestType": "GetBrandsName",                    # possible values are GetProductData and GetBrandsName
+        "RequestType": "",                    # possible values are GetProductData and GetBrandsName
         "Filters":[] ,     #Possible Values PriceAscending,PriceDescending,BrandsFilter .    # All string type, it just indicates what filter have been applied.
         "BrandsFilter": [],                                          #will only be present in the request if BrandsFilterExists.
         "CurrentPage": 1,
-        "ProductPerPage": 50
+        "ProductPerPage": 5
     }
+print(requestDB(requestDict))
+
+app = Flask(__name__)
+#app.run(debug=True)
+
+def initializeRequestDict(args):
+    requestDict["RequestType"] = args["RequestType"]   #args are the parameters after ?
+    requestDict["Filters"] = json.loads(args["Filters"])
+    requestDict["BrandsFilter"] = json.loads(args["BrandsFilter"])
+    requestDict["CurrentPage"] = int(args["CurrentPage"])
+    requestDict["ProductPerPage"] = int(args["ProductPerPage"])
 
 
 @app.route('/', methods=('GET', 'POST'))
 def hello_world():
     if request.method == 'GET':
-        print(request)
+        print("hello")
+        print(request.args["RequestType"])
         return jsonify({'sameer': 'sameer'})
 
     if request.method == 'POST':
@@ -23,10 +35,10 @@ def hello_world():
         return jsonify({'sameer': 'sameer'})
 
 
-@app.route('/filter', methods=('GET', 'POST'))
-def func():
-    print(request.args["filter"])           #args are the parameters after ?
-    return jsonify({'sameer': 'sameer'})
+@app.route('/Page=<page>', methods=('GET', 'POST'))
+def func(page):
+    initializeRequestDict(request.args)
+    return jsonify(requestDB(requestDict))
 
 
 @app.after_request
@@ -38,11 +50,4 @@ def after_request(response):
 
 
 if __name__ == '__main__':
-    app.run()
-
-"""requestDict = {
-        "Filters":["PriceDescending"] ,     #Possible Values PriceAscending,PriceDescending,BrandsFilter .    # All string type, it just indicates what filter have been applied.
-        "BrandsFilter": ["Samsung","Mi"],                                          #will only be present in the request if BrandsFilterExists.
-        "CurrentPage": 1,
-        "ProductPerPage": 5
-    }"""
+    app.run(debug=True)

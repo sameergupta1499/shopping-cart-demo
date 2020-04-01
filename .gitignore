@@ -29,10 +29,10 @@ flask-backend-shopping-cart-demo/.idea
 
 #Mongo Database files
 #mongo URI
-flask-backend-shopping-cart-demo/mongo-database/mongoDBURI.py
+flask-backend-shopping-cart-demo/mongoDatabase/mongoDBURI.py
 
 #local json database file
-flask-backend-shopping-cart-demo/mongo-database/dataset.json
+flask-backend-shopping-cart-demo/mongoDatabase/dataset.json
 
 #temporary work python file
-flask-backend-shopping-cart-demo/mongo-database/temp.py
+flask-backend-shopping-cart-demo/mongoDatabase/temp.py

@@ -1,3 +1,4 @@
+
 import json
 #outputs list of objects i.e.[{},{},{}]
 def getDataJson():
