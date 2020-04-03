@@ -1,6 +1,8 @@
 import React from "react"
 
 function ProductItem(props) {
+    console.log("inside products item")
+
     return (
         <>
             <div className="product-item">
