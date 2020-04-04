@@ -1,10 +1,11 @@
 import React from 'react';
 import ProductContainer from '../ProductContainer/ProductContainer';
+import DummyComponent from "../DummyComponent/DummyComponent";
 
 const App = () => (
   <React.Fragment>
     <main>
-      <ProductContainer />
+        <DummyComponent/>
     </main>
   </React.Fragment>
 );
