@@ -2,34 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/App.js'
 import * as serviceWorker from './serviceWorker';
-import {createStore} from 'redux';
 import {Provider} from 'react-redux'
-import allReducers from "./reducers";
+import store from './services/store'
 
-const store = createStore(allReducers,
-    {
-        "brands":{},
-        "products":{}
-    },
-    window.devToolsExtension && window.devToolsExtension())
-/*
-const store = createStore(allReducers,
-    {
-        "RequestType": "GetProducts",
-        "Filters": [],
-        "BrandsFilter": [],
-        "CurrentPage": 1,
-        "ProductPerPage": 25,
-        "brands":{},
-        "products":{}
-    },
-    window.devToolsExtension && window.devToolsExtension())
-*/
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}><App />
-    </Provider>Provider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
