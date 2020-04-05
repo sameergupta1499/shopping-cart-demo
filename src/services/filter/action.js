@@ -1,18 +1,16 @@
-import {FETCH_PRODUCTS} from "./actionTypes";
+import {FETCH_BRANDS} from "./actionTypes";
 import axios from 'axios';
 
-export const fetchProducts = () => dispatch => {
+export const fetchBrands = () => dispatch => {
   return axios
-    .get('http://127.0.0.1:5000/Products/Phone?Filters=["BrandsFilter","PriceAscending"]&BrandsFilter=["Samsung","Mi"]&CurrentPage=2&ProductPerPage=25')
+    .get('http://127.0.0.1:5000/Products/Phone?RequestType=GetBrandsName')
     .then(response => {
-        console.log("inside THEN")
-        console.log(response.data)
       return dispatch({                        //this dispatch will run after the earlier dispatch gives the request back. This is because of THUNK working as middlewear.
-        type: FETCH_PRODUCTS,
+        type: FETCH_BRANDS,
         payload: response.data
       });
     })
     .catch(err => {
-      console.log('Could not fetch products. Try again later.');
+      console.log('Could not fetch Brands. Try again later.');
     });
 };

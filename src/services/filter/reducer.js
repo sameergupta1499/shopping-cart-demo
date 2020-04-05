@@ -1,10 +1,10 @@
-import {FETCH_PRODUCTS} from "./actionTypes";
-const productsReducer = (state={}, action)=>{
+import {FETCH_BRANDS} from "./actionTypes";
+const brandsReducer = (state={}, action)=>{
     switch(action.type) {
-        case FETCH_PRODUCTS:
+        case FETCH_BRANDS:
             return {                          //creating copy of state object before copying to ignore modifying original state
                 ...state,
-                Products: action.payload.Products,
+                Brands: action.payload.Products,
                 TotalProducts: action.payload.TotalProducts
       };
         default :
@@ -12,7 +12,7 @@ const productsReducer = (state={}, action)=>{
     }
 }
 
-export default productsReducer;
+export default brandsReducer;
 
 /*
 export const fetchProducts = (filters, sortBy, callback) => dispatch => {

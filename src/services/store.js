@@ -6,6 +6,10 @@ const initialState = {
         "products":{
             "Products":[],
             "TotalProducts":0
+        },
+        "brands":{
+            "Brands":[],
+            "TotalProducts":0
         }
     }
 

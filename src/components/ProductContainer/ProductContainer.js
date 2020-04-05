@@ -1,64 +1,40 @@
-import React from "react"
+import React from "react";
+import {connect} from 'react-redux';
+import {fetchProducts} from '../../services/product-container/action'
+import ProductItemContainer from './ProductItemContainer/ProductItemContainer'
 import ProductContainerHeader from "./ProductContainerHeader/ProductContainerHeader";
-import ProductItemContainer from "./ProductItemContainer/ProductItemContainer";
 
-class ProductContainer extends React.Component{
-     constructor() {
-        super()
-        this.state = {
-            products: [],
-            totalProducts: 0
-        }
-        this.getData = this.getData.bind(this);
-        this.productItemContainer = this.productItemContainer.bind(this);
+class ProductContainer extends React.Component {
+    constructor(props){
+        super(props)
+        this.onUpdateProducts=this.onUpdateProducts.bind(this)
     }
-    getData(requestAPI){
-    // create a new XMLHttpRequest
-    var xhr = new XMLHttpRequest()
-
-    // get a callback when the server responds
-    xhr.addEventListener('load', () => {
-      // update the state of the component with the result here
-      this.setState(() => {
-            return {
-                products:(JSON.parse(xhr.responseText))["Products"] ,       //xhr.responseText is of string type.
-                totalProducts: (JSON.parse(xhr.responseText))["TotalProducts"]
-            }
-        })
-
-        var x= JSON.parse(xhr.responseText)
-      console.log(x["Products"])      //xhr.responseText parsed into json type now.
-      //Note: backend sending the response in Content-Type:application/json.
-    })
-    // open the request with the verb and the url
-    xhr.open('GET', requestAPI)
-    // send the request
-    xhr.send()
-  }
-
     componentDidMount() {
-        this.getData("http://127.0.0.1:5000/")
+        this.props.onUpdateProducts()
     }
-    productItemContainer() {
-
-        if (this.state.products.length==0){
-            console.log("outside else inside if")
-        }
-        else{
-            console.log("inside ProductItemContainer Else",this.state.products)
-            return <ProductItemContainer products={this.state.products}/>
-        }
-}
+    onUpdateProducts(){
+        this.props.onUpdateProducts()
+    }
     render(){
-        //<ProductContainerHeader />
-        console.log(this.state.products)
+        console.log(this.props.products.Products)
         return (
-            <div className="product-item-container">
-                <button onClick={()=>{this.getData('http://127.0.0.1:5000/Products/Phone?Filters=["BrandsFilter","PriceAscending"]&BrandsFilter=["Samsung","Mi"]')}}>click me</button>
-                {this.productItemContainer()}
-            </div>
-            )
+            <>
+                <div className="product-container">
+                    <ProductContainerHeader totalProducts={this.props.products.TotalProducts}/>
+                    <ProductItemContainer products={this.props.products.Products}/>
+                </div>
+           </>
+        )
     }
 }
-
-export default ProductContainer
+//To get props to the component, and to get all product just return the state else type the specific props name you want.
+//props argument is the props send by the parent component, to use just create a new key and put the props as the value in it.
+const mapStateToProps = (state,props)=>{
+    return {
+        products:state.products
+    }
+}
+const mapActionsToProps={
+    onUpdateProducts:fetchProducts
+}
+export default connect(mapStateToProps,mapActionsToProps) (ProductContainer);
