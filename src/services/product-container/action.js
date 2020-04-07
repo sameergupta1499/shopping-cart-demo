@@ -1,9 +1,12 @@
 import {FETCH_PRODUCTS} from "./actionTypes";
 import axios from 'axios';
+import createProductAPI from '../util/createProductAPI'
 
-export const fetchProducts = () => dispatch => {
+export const fetchProducts = (BrandsFilter,pageDetails,sort,RequestType) => dispatch => {
+    let APIURL= createProductAPI(BrandsFilter,pageDetails,sort,RequestType)      //to construct APIURL that with the current state of the site
+    //console.log(APIURL.href)
   return axios
-    .get('http://127.0.0.1:5000/Products/Phone?Filters=["BrandsFilter","PriceAscending"]&BrandsFilter=["Samsung","Mi"]&CurrentPage=2&ProductPerPage=25')
+    .get(APIURL)
     .then(response => {
       return dispatch({                        //this dispatch will run after the earlier dispatch gives the request back. This is because of THUNK working as middlewear.
         type: FETCH_PRODUCTS,

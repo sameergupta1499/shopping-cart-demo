@@ -1,4 +1,4 @@
-import {FETCH_BRANDS} from "./actionTypes";
+import {FETCH_BRANDS,ADD_BRAND_FILTER,DELETE_BRAND_FILTER} from "./actionTypes";
 import axios from 'axios';
 
 export const fetchBrands = () => dispatch => {
@@ -14,3 +14,12 @@ export const fetchBrands = () => dispatch => {
       console.log('Could not fetch Brands. Try again later.');
     });
 };
+export const addBrandFilter = brandToAdd => ({               //brand name should be string type
+  type: ADD_BRAND_FILTER,
+  payload: brandToAdd
+});
+
+export const deleteBrandFilter = brandToDelete =>({
+     type: DELETE_BRAND_FILTER,
+     payload: brandToDelete
+});

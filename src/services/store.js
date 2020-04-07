@@ -10,6 +10,16 @@ const initialState = {
         "brands":{
             "Brands":[],
             "TotalProducts":0
+        },
+        "filterBrands":{
+            "BrandsFilter":[]
+        },
+        "pageDetails":{
+        "CurrentPage":1,
+        "ProductPerPage":25
+        },
+        "sort":{
+        "Sort":""    //PriceAscending and PriceDescending are the possible value
         }
     }
 
@@ -23,19 +33,3 @@ const store = createStore(allReducers,
 
 export default store;
 
-
-
-
-/*
-const store = createStore(allReducers,
-    {
-        "RequestType": "GetProducts",
-        "Filters": [],
-        "BrandsFilter": [],
-        "CurrentPage": 1,
-        "ProductPerPage": 25,
-        "brands":{},
-        "products":{}
-    },
-    window.devToolsExtension && window.devToolsExtension())
-*/

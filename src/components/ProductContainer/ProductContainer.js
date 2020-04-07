@@ -10,13 +10,23 @@ class ProductContainer extends React.Component {
         this.onUpdateProducts=this.onUpdateProducts.bind(this)
     }
     componentDidMount() {
-        this.props.onUpdateProducts()
+        let RequestType = "GetProducts"
+        this.props.onUpdateProducts(this.props.filterBrands.BrandsFilter,this.props.pageDetails,this.props.sort.Sort,RequestType)
     }
     onUpdateProducts(){
-        this.props.onUpdateProducts()
+        let RequestType = "GetProducts"
+        this.props.onUpdateProducts(this.props.filterBrands.BrandsFilter,this.props.pageDetails,this.props.sort.Sort,RequestType)
+    }
+    componentDidUpdate(prevProps){
+        //Checking if these props changed their state , to rerender the component and fetch new data.
+        if(prevProps.filterBrands!==this.props.filterBrands || prevProps.sort!==this.props.sort || prevProps.pageDetails!==this.props.pageDetails ){
+            let RequestType = "GetProducts"
+            this.props.onUpdateProducts(this.props.filterBrands.BrandsFilter,this.props.pageDetails,this.props.sort.Sort,RequestType)
+        }
+        //this.props.onUpdateProducts(this.props.filterBrands,this.props.pageDetails,this.props.sort)
     }
     render(){
-        console.log(this.props.products.Products)
+        //console.log("inside product container component")
         return (
             <>
                 <div className="product-container">
@@ -27,11 +37,15 @@ class ProductContainer extends React.Component {
         )
     }
 }
+
 //To get props to the component, and to get all product just return the state else type the specific props name you want.
 //props argument is the props send by the parent component, to use just create a new key and put the props as the value in it.
 const mapStateToProps = (state,props)=>{
     return {
-        products:state.products
+        products:state.products,
+        filterBrands:state.filterBrands,
+        pageDetails:state.pageDetails,
+        sort:state.sort
     }
 }
 const mapActionsToProps={

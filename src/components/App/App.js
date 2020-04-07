@@ -1,9 +1,11 @@
 import React from 'react';
 import ProductContainer from '../ProductContainer/ProductContainer';
+import FilterContainer from "../Filter/FilterContainer";
 
 const App = () => (
   <React.Fragment>
     <main>
+        <FilterContainer/>
         <ProductContainer/>
     </main>
   </React.Fragment>

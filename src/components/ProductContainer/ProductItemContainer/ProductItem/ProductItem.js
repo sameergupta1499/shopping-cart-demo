@@ -1,7 +1,7 @@
 import React from "react"
 
 function ProductItem(props) {
-    console.log("inside products item")
+    //console.log("inside products item")
 
     return (
         <>

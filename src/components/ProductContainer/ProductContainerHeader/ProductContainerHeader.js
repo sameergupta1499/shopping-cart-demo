@@ -1,7 +1,7 @@
 import React from "react";
 
 function ProductContainerHeader(props){
-    console.log(props.totalProducts)
+    //console.log(props.totalProducts)
     return (
         <>
             <div className="product-container-header">

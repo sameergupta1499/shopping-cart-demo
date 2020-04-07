@@ -1,8 +1,11 @@
 import {UPDATE_PAGE_STATE} from "./actionTypes";
 const pageStateReducer = (state={}, action)=>{
-    switch(UPDATE_PAGE_STATE) {
+    switch(action.type) {
         case UPDATE_PAGE_STATE:
-            return action.payload
+            return {
+                ...state,
+                CurrentPage : action.payload
+            }
         default :
             return state
     }
