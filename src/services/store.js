@@ -16,7 +16,7 @@ const initialState = {
         },
         "pageDetails":{
         "CurrentPage":1,
-        "ProductPerPage":25
+        "ProductPerPage":24
         },
         "sort":{
         "Sort":""    //PriceAscending and PriceDescending are the possible value

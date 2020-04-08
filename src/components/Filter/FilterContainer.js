@@ -19,7 +19,7 @@ class FilterContainer extends React.Component {
         const  brandsItem= this.props.brands.Brands.map((item,index) => <FilterItem key={index} item={item} />);
         return (
             <>
-                <div className="filter-container">
+                <div className="filter-container col-sm-3">
                     {brandsItem===[]?console.log("Data Fetching"):brandsItem}
                 </div>
            </>

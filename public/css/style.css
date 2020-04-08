@@ -1,0 +1,44 @@
+.product-img-container {
+    border-style: solid;
+  max-width: 100%;
+    margin:auto;
+    min-height: 200px;
+    max-height: 200px;
+  overflow: hidden;
+}
+.product-name{
+
+    color: #999;
+    max-height: 36px;
+    max-width: 192px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-height: 18px;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-left:15px;
+    margin-left:15px;
+    margin-bottom:8px;
+    font-size: 13px;
+}
+.product-img {
+    display: block;
+    height: 200px;
+    width:auto;
+    margin:auto ;
+
+}
+.product-name-container{
+    overflow: hidden;
+}
+.product-price-mrp {
+    font-size: 13px;
+    color: #ccc;
+    text-decoration: line-through;
+}
+.product-price-discounted{
+    color: #333;
+    font-family: "font-regular";
+    font-size: 13px;
+}

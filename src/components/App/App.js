@@ -4,9 +4,11 @@ import FilterContainer from "../Filter/FilterContainer";
 
 const App = () => (
   <React.Fragment>
-    <main>
+    <main className={"container-fluid"}>
+        <div className={"row"}>
         <FilterContainer/>
         <ProductContainer/>
+        </div>
     </main>
   </React.Fragment>
 );

@@ -29,7 +29,7 @@ class ProductContainer extends React.Component {
         //console.log("inside product container component")
         return (
             <>
-                <div className="product-container">
+                <div className="product-container col-sm-9">
                     <ProductContainerHeader totalProducts={this.props.products.TotalProducts}/>
                     <ProductItemContainer products={this.props.products.Products}/>
                 </div>

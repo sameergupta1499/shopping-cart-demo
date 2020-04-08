@@ -1,9 +1,11 @@
 import {FETCH_BRANDS,ADD_BRAND_FILTER,DELETE_BRAND_FILTER} from "./actionTypes";
+import {DOMAIN_NAME_URL} from '../util/domainNameURL'
 import axios from 'axios';
 
 export const fetchBrands = () => dispatch => {
+    let APIURL=DOMAIN_NAME_URL+"?RequestType=GetBrandsName"
   return axios
-    .get('http://127.0.0.1:5000/Products/Phone?RequestType=GetBrandsName')
+    .get(APIURL)
     .then(response => {
       return dispatch({                        //this dispatch will run after the earlier dispatch gives the request back. This is because of THUNK working as middlewear.
         type: FETCH_BRANDS,
