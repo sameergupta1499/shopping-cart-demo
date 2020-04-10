@@ -1,16 +1,4 @@
-import {FETCH_BRANDS,ADD_BRAND_FILTER,DELETE_BRAND_FILTER} from "./actionTypes";
-export const brandsReducer = (state={}, action)=>{
-    switch(action.type) {
-        case FETCH_BRANDS:
-            return {                          //creating copy of state object before copying to ignore modifying original state
-                ...state,
-                Brands: action.payload.Products,
-                TotalProducts: action.payload.TotalProducts
-      };
-        default :
-            return state
-    }
-};
+import {ADD_BRAND_FILTER,DELETE_BRAND_FILTER} from "./actionTypes";
 
 export const addBrandFilterReducer = (state={}, action)=>{
     switch(action.type) {

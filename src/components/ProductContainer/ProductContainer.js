@@ -3,14 +3,16 @@ import {connect} from 'react-redux';
 import {fetchProducts} from '../../services/product-container/action'
 import ProductItemContainer from './ProductItemContainer/ProductItemContainer'
 import ProductContainerHeader from "./ProductContainerHeader/ProductContainerHeader";
+import Spinner from "../Spinnner/Spinner"
 
 class ProductContainer extends React.Component {
     constructor(props){
         super(props)
         this.onUpdateProducts=this.onUpdateProducts.bind(this)
     }
+
     componentDidMount() {
-        let RequestType = "GetProducts"
+        let RequestType = "WebsiteInitialization"
         this.props.onUpdateProducts(this.props.filterBrands.BrandsFilter,this.props.pageDetails,this.props.sort.Sort,RequestType)
     }
     onUpdateProducts(){
@@ -29,6 +31,7 @@ class ProductContainer extends React.Component {
         //console.log("inside product container component")
         return (
             <>
+                <Spinner/>
                 <div className="product-container col-sm-9">
                     <ProductContainerHeader totalProducts={this.props.products.TotalProducts}/>
                     <ProductItemContainer products={this.props.products.Products}/>
@@ -45,7 +48,8 @@ const mapStateToProps = (state,props)=>{
         products:state.products,
         filterBrands:state.filterBrands,
         pageDetails:state.pageDetails,
-        sort:state.sort
+        sort:state.sort,
+        loadingState: state.loadingState
     }
 }
 const mapActionsToProps={

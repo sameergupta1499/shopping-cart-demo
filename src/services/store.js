@@ -4,11 +4,8 @@ import allReducers from './rootReducer'
 
 const initialState = {
         "products":{
-            "Products":[],
-            "TotalProducts":0
-        },
-        "brands":{
             "Brands":[],
+            "Products":[],
             "TotalProducts":0
         },
         "filterBrands":{
@@ -16,10 +13,13 @@ const initialState = {
         },
         "pageDetails":{
         "CurrentPage":1,
-        "ProductPerPage":24
+        "ProductPerPage": 40
         },
         "sort":{
         "Sort":""    //PriceAscending and PriceDescending are the possible value
+        },
+        "loadingState":{
+        "LoadingState":false
         }
     }
 

@@ -1,44 +1,96 @@
-.product-img-container {
-    border-style: solid;
-  max-width: 100%;
-    margin:auto;
-    min-height: 200px;
-    max-height: 200px;
-  overflow: hidden;
+body{
+    background-color: #f7f7f7;
+    margin-left: 7%;
+    margin-right:7%;
 }
-.product-name{
+.product-container{
+    background-color: white;
+}
+.product-item{
+    padding-left:8px;
+    padding-right:8px;
+    padding-top:8px;
+     margin:0;
+    width:100%;
+    height:350px;
+}
+.product-item:hover {
+    box-shadow: 0 0 20px rgba(33,33,33,.2);
+}
 
+.product-image-container {
+   height: 70%;
+    width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+}
+.product-img {
+    display: block;
+    max-height: 100%;
+    min-height: 100%;
+    max-width: 100%;
+    width:auto;
+    margin:auto;
+}
+
+.product-item-description{
     color: #999;
-    max-height: 36px;
-    max-width: 192px;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     line-height: 18px;
     -webkit-box-orient: vertical;
-    overflow: hidden;
-    margin-left:15px;
-    margin-left:15px;
+    margin-left:14%;
+    margin-right:14%;
     margin-bottom:8px;
     font-size: 13px;
 }
-.product-img {
-    display: block;
-    height: 200px;
-    width:auto;
-    margin:auto ;
-
-}
 .product-name-container{
     overflow: hidden;
+    text-align: justify;
+}
+.product-name{
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+.starContainer{
+    font-size: 10px;
+    display: inline-block;
+    white-space:pre;
+}
+.halfChecked{
+    color:orange;
+}
+.checked{
+    font-max-size: 10px;
+    color:orange;
+    text-shadow: orange 0px 0px 1px,   orange 0px 0px 1px,   orange 0px 0px 1px,
+             orange 0px 0px 1px,   orange 0px 0px 1px,   orange 0px 0px 1px;
+}
+.unchecked{
+    color:white;
+    text-shadow: orange 0px 0px 1px,   orange 0px 0px 1px,   orange 0px 0px 1px,
+             orange 0px 0px 1px,   orange 0px 0px 1px,   orange 0px 0px 1px;
+}
+
+.product-price-container{
+    white-space:pre;
 }
 .product-price-mrp {
-    font-size: 13px;
     color: #ccc;
     text-decoration: line-through;
 }
 .product-price-discounted{
     color: #333;
     font-family: "font-regular";
-    font-size: 13px;
+    font-size: 14px;
+}
+.filter-container-wrapper{
+    margin:0;
+    padding-right:10px;
+}
+.filter-container{
+    background-color:white;
+    padding:16px;
 }

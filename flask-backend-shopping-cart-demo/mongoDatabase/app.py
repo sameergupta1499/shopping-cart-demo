@@ -21,6 +21,7 @@ def requestDB(requestDict):
     phoneCollection = shoppingDB["phones"]
     #print(requestDict,phoneCollection)
     responseDict={"Products": [],
+                    "BrandsName":[],
                   "TotalProducts": 0}
     filters = requestDict["Filters"]
     productPerPage=requestDict["ProductPerPage"]
@@ -28,11 +29,10 @@ def requestDB(requestDict):
 
 
     ########################################## Get Brands Name Only ########################################
-    if requestDict["RequestType"] == "GetBrandsName":
+    if requestDict["RequestType"] == "WebsiteInitialization":
         productsCursor = phoneCollection.distinct("Brand_name")
-        responseDict["Products"] = productsCursor
-        responseDict["TotalProducts"] = len(productsCursor)
-        return responseDict
+        responseDict["BrandsName"] = productsCursor
+
 
 
     ####################### When No Filter is applied.########################
