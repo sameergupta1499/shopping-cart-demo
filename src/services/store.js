@@ -8,12 +8,12 @@ const initialState = {
             "Products":[],
             "TotalProducts":0
         },
-        "filterBrands":{
+        "filters":{
             "BrandsFilter":[]
         },
         "pageDetails":{
         "CurrentPage":1,
-        "ProductPerPage": 40
+        "ProductPerPage": 24
         },
         "sort":{
         "Sort":""    //PriceAscending and PriceDescending are the possible value

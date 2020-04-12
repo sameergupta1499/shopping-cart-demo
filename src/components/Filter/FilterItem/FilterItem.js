@@ -13,9 +13,10 @@ class FilterItem extends React.Component {
     render(){
         return (
             <>
-                <div className="filter-item" onClick={()=>this.onUpdateBrandList(this.props.item)}>
-                    {this.props.item}
-                </div>
+                <li className="list-group-item">
+                    <div className="brand-item" onClick={()=>this.onUpdateBrandList(this.props.item)}>{this.props.item}</div>
+                </li>
+
            </>
         )
     }
@@ -24,7 +25,7 @@ class FilterItem extends React.Component {
 //props argument is the props send by the parent component, to use just create a new key and put the props as the value in it.
 const mapStateToProps = (state,props)=>{
     return {
-        filterBrands:state.filterBrands,
+        filters:state.filters,
         item:props.item
     }
 }

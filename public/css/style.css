@@ -1,15 +1,26 @@
+/*----------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------- BODY ----------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------*/
+
 body{
-    background-color: #f7f7f7;
+    background-color: #f1f3f6;
     margin-left: 7%;
     margin-right:7%;
 }
+/*----------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------- Product container -----------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------*/
+
 .product-container{
     background-color: white;
+    padding:0;
+}
+.product-item-container{
+    padding:0 16px;
+    margin:0;
 }
 .product-item{
-    padding-left:8px;
-    padding-right:8px;
-    padding-top:8px;
+    padding:8px 8px 0 8px;
      margin:0;
     width:100%;
     height:350px;
@@ -86,11 +97,117 @@ body{
     font-family: "font-regular";
     font-size: 14px;
 }
+
+.product-container-header{
+    border-bottom: 1px solid #f0f0f0;
+    padding:16px 16px 0;
+    margin:0;
+}
+
+.product-total-header{
+    font-family: Roboto,Arial,sans-serif;
+    letter-spacing: 0;
+    display: inline-block;
+    margin:0;
+    Padding:0;
+}
+.product-total-header p{
+    color: #878787;
+    font-size: 12px;
+    display: inline-block;
+    margin:0;
+    margin-left: 7px;
+}
+.product-total-header span{
+    font-weight: 550;
+    font-size: 16px;
+
+}
+.sort-container{
+    font-family: Roboto,Arial,sans-serif;
+    font-size: 14px;
+    padding:6px 0 4px;
+
+}
+.sort-container span{
+    display: inline-block;
+    font-weight: 550;
+
+}
+#sort-list {
+    display: inline;
+}
+#sort-list a{
+    display:inline;
+    color:black;
+    padding-right:0!important;
+    padding-right:30px;
+}
+#sort-list a.nav-link.active{
+    color:#2874f0;
+    border-bottom: 2px solid #2874f0;
+    padding-bottom: 5px;
+    padding-left:0;
+    margin-left: 16px;
+}
+/*----------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------- Filter Container  -----------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------*/
+
 .filter-container-wrapper{
     margin:0;
     padding-right:10px;
 }
-.filter-container{
+.filter-header{
+    background-color:white;
+    padding:16px 16px 12px;
+    margin:0;
+    font-size: 18px;
+    font-family:  "Arial", Helvetica, sans-serif;
+    border-bottom: 1px solid #f0f0f0;
+    font-weight: 550;
+}
+.brand-container{
     background-color:white;
     padding:16px;
+    margin:0;
+
 }
+.brand-header{
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    display: inline-block;
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------- Spinner ---------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------*/
+
+.spinner-wrapper {
+    position: fixed;
+    opacity: 0.8;
+    top: 0;
+    bottom:0;
+    margin-left: -7%;
+    margin-right:-7%;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    border-radius: 5px;
+    background-color: #000;
+}
+.spinner{
+
+    position:fixed;
+    top:50%;
+    left:50%;
+    color:white;
+
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------*/
+/*----------------------------------------------------  -----------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------*/

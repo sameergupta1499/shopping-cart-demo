@@ -9,8 +9,13 @@ class FilterContainer extends React.Component {
         return (
             <>
                 <div className=" filter-container-wrapper col-sm-3">
-                    <div className="filter-container">
+                    <div className="filter-header">Filters</div>
+                    <div className="brand-container">
+                        <div className="brand-header">Brand</div>
+                        <input className="form-control" id="myInput" type="text" placeholder="Search.."/>
+                        <ul className="list-group" id="brand-list">
                         {brandsItem===[]?console.log("Data Fetching"):brandsItem}
+                        </ul>
                     </div>
                 </div>
 

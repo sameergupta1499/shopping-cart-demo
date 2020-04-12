@@ -7,7 +7,7 @@ import loadingStateReducer from "./Spinner/reducer"
 
 export default combineReducers({
     products : productsReducer,
-    filterBrands: addBrandFilterReducer,
+    filters: addBrandFilterReducer,
     pageDetails: pageStateReducer,
     sort:sortReducer,
     loadingState: loadingStateReducer
