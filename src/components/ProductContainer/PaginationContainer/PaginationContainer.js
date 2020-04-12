@@ -25,7 +25,6 @@ class PaginationContainer extends React.Component {
             <>
                 <div className ="pagination-container-wrapper">
                     <div className="PageStatusDisplay">Page {this.props.pageDetails.CurrentPage} of {getTotalPages(this.props.totalProducts,this.props.pageDetails.ProductPerPage)}</div>
-                    <div className="pagination-container">
                         <Pagination
                             hideDisabled
                             hideNavigation
@@ -37,7 +36,6 @@ class PaginationContainer extends React.Component {
                             pageRangeDisplayed={5}
                             onChange={page=>this.props.onUpdatePage(page)}
                         />
-                    </div>
                 </div>
             </>
         )

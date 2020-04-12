@@ -149,6 +149,68 @@ body{
     padding-bottom: 5px;
     padding-left:0;
     margin-left: 16px;
+
+}
+/*----------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------- Pagination Container-----------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------*/
+
+
+.pagination-container-wrapper{
+    color:black;
+    position:relative;
+    height: 51px;
+    width:100%;
+    border-top: 1px solid #f0f0f0;
+    font-family: Roboto,Arial,sans-serif;
+    letter-spacing: 0;
+    font-size: 14px;
+    line-height: 32px;
+}
+.PageStatusDisplay{
+    display: inline-flex;
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    padding:10px;
+    box-sizing: border-box
+    }
+
+.pagination-container-wrapper ul.pagination{
+    display: inline-flex;
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    margin: 0 42% 0 38% ;
+    max-width: 20%;
+    font-weight: 550;
+    padding:10px;
+}
+.pagination-container-wrapper li a{
+    color:black;
+    margin:0 8px;
+}
+.pagination-container-wrapper li.active a{
+    color: white;
+    height: max-content;
+    width: 24px;
+    justify-content: center;
+  border-radius: 40%;
+  display: inline-block;
+    margin:0;
+    background-color: #2874f0;
+    text-align: center;
+}
+.pagination-container-wrapper li a[aria-label="Go to first page"]{
+    color:#2874f0;
+    letter-spacing: 0;
+    padding-right:15px;
+}
+
+.pagination-container-wrapper li a[aria-label="Go to last page"]{
+    color:#2874f0;
+    letter-spacing: 0;
+    padding-left:15px;
 }
 /*----------------------------------------------------------------------------------------------------------------------------*/
 /*---------------------------------------------------- Filter Container  -----------------------------------------------------*/
@@ -209,5 +271,5 @@ body{
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------*/
-/*----------------------------------------------------  -----------------------------------------------------*/
+/*---------------------------------------------------- -----------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------------*/
