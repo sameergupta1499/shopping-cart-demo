@@ -1,7 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
 import {addBrandFilter,deleteBrandFilter} from '../../../services/filter/action'
-import ReactDOM from 'react-dom'
 
 class FilterItem extends React.Component {
     constructor(props){
@@ -29,7 +28,7 @@ class FilterItem extends React.Component {
         //console.log(ReactDOM.findDOMNode(this))
     }
     onUpdateBrandList(item){
-        console.log(item)
+        //console.log(item)
         if(this.props.filters.BrandsFilter.includes(item)){
             this.onDeleteBrandTolist(item)
         }
@@ -39,9 +38,10 @@ class FilterItem extends React.Component {
     }
     render(){
         //console.log("inside filter item",this.props.item)
+
         return (
                 <li className="brand-list-group-item" style={{listStyleType : "none"}} onClick={()=>this.onUpdateBrandList(this.props.item)}>
-                    <input type="checkbox" value={this.props.item} checked={this.isBrandAdded(this.props.item)} onChange={()=>console.log("clicked")}/>{this.props.item}
+                    <input type="checkbox" value={this.props.item} checked={this.isBrandAdded(this.props.item)} onChange={()=>console.log("clickedDummy")}/>{this.props.item}
                 </li>
         )
     }
@@ -50,7 +50,7 @@ class FilterItem extends React.Component {
 //props argument is the props send by the parent component, to use just create a new key and put the props as the value in it.
 const mapStateToProps = (state,props)=>{
     return {
-        filters:state.filters,
+        filters:props.filters,
         item:props.item
     }
 }

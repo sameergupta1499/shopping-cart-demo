@@ -1,4 +1,4 @@
-import {ADD_BRAND_FILTER,DELETE_BRAND_FILTER} from "./actionTypes";
+import {ADD_BRAND_FILTER, DELETE_ALL_FILTER, DELETE_BRAND_FILTER} from "./actionTypes";
 
 export const addBrandFilterReducer = (state={}, action)=>{
     switch(action.type) {
@@ -23,6 +23,11 @@ export const addBrandFilterReducer = (state={}, action)=>{
             return {
                 ...state,
                 BrandsFilter: copyPayload
+            };
+        case DELETE_ALL_FILTER:
+            return {
+                ...state,
+                BrandsFilter:[]
             };
         default :
             return state
