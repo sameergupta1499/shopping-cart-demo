@@ -1,23 +1,48 @@
 import React from "react";
 import {connect} from 'react-redux';
-import {addBrandFilter} from '../../../services/filter/action'
+import {addBrandFilter,deleteBrandFilter} from '../../../services/filter/action'
+import ReactDOM from 'react-dom'
 
 class FilterItem extends React.Component {
     constructor(props){
         super(props)
+        this.onAddBrandToList=this.onAddBrandToList.bind(this)
+        this.onDeleteBrandTolist=this.onDeleteBrandTolist.bind(this)
         this.onUpdateBrandList=this.onUpdateBrandList.bind(this)
+        this.isBrandAdded=this.isBrandAdded.bind(this)
+    }
+    isBrandAdded(item){
+        //console.log(this.props.filters.BrandsFilter,item)
+        if(this.props.filters.BrandsFilter.includes(item)){
+            //console.log("inside true")
+            return true
+        }
+        else{
+            return false
+        }
+    }
+    onDeleteBrandTolist(item) {
+        this.props.onDeleteBrandTolist(item)
+    }
+    onAddBrandToList(item){
+        this.props.onAddBrandToList(item)
+        //console.log(ReactDOM.findDOMNode(this))
     }
     onUpdateBrandList(item){
-        this.props.onUpdateBrandList(item)
+        console.log(item)
+        if(this.props.filters.BrandsFilter.includes(item)){
+            this.onDeleteBrandTolist(item)
+        }
+        else{
+            this.onAddBrandToList(item)
+        }
     }
     render(){
+        //console.log("inside filter item",this.props.item)
         return (
-            <>
-                <li className="list-group-item">
-                    <div className="brand-item" onClick={()=>this.onUpdateBrandList(this.props.item)}>{this.props.item}</div>
+                <li className="brand-list-group-item" style={{listStyleType : "none"}} onClick={()=>this.onUpdateBrandList(this.props.item)}>
+                    <input type="checkbox" value={this.props.item} checked={this.isBrandAdded(this.props.item)} onChange={()=>console.log("clicked")}/>{this.props.item}
                 </li>
-
-           </>
         )
     }
 }
@@ -30,6 +55,7 @@ const mapStateToProps = (state,props)=>{
     }
 }
 const mapActionsToProps={
-    onUpdateBrandList:addBrandFilter
+    onAddBrandToList:addBrandFilter,
+    onDeleteBrandTolist:deleteBrandFilter
 }
 export default connect(mapStateToProps,mapActionsToProps) (FilterItem);

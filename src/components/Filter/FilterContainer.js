@@ -1,22 +1,42 @@
 import React from "react";
 import {connect} from 'react-redux';
 import FilterItem from "./FilterItem/FilterItem";
+import SearchInput, {createFilter} from 'react-search-input'
+import ReactDOM from 'react-dom'
 
 class FilterContainer extends React.Component {
+    constructor(props){
+        super(props)
+        this.searchBrands=this.searchBrands.bind(this)
+        this.state= {
+            searchInputValue: ''
+        };
+
+
+    }
+    searchBrands(event){
+        //const filteredEmails = emails.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+        this.setState({searchInputValue: event.target.value});
+        console.log(event.target.value)
+    }
+        //console.log(this.state.copyBrands)
+
     render(){
-        //console.log(this.props.brands)
-        const  brandsItem= this.props.brands.map((item,index) => <FilterItem key={index} item={item} />);
+        const  brandsSixItem = this.props.brands.map((item,index) => <FilterItem key={index} item={item}/>);
+        //console.log(ReactDOM.findDOMNode(this))
         return (
             <>
                 <div className=" filter-container-wrapper col-sm-3">
                     <div className="filter-header">Filters</div>
-                    <div className="brand-container">
-                        <div className="brand-header">Brand</div>
-                        <input className="form-control" id="myInput" type="text" placeholder="Search.."/>
-                        <ul className="list-group" id="brand-list">
-                        {brandsItem===[]?console.log("Data Fetching"):brandsItem}
+                      <div className="brand-container">
+                    <div className="brand-header">Brand</div>
+                          <input className="form-control" id="myInput" type="text" value={this.state.searchInputValue} onChange={(event) => this.searchBrands(event)} placeholder="🔍 Search Brand.."/>
+
+                        <ul className="Brand-List">
+                        {brandsSixItem===[]?console.log("Data Fetching"):brandsSixItem}
                         </ul>
                     </div>
+                     <div className="filter-container-footer"></div>
                 </div>
 
            </>

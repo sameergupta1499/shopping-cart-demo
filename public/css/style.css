@@ -7,6 +7,10 @@ body{
     margin-left: 7%;
     margin-right:7%;
 }
+li{
+    cursor:pointer;
+
+}
 /*----------------------------------------------------------------------------------------------------------------------------*/
 /*---------------------------------------------------- Product container -----------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------------*/
@@ -14,6 +18,7 @@ body{
 .product-container{
     background-color: white;
     padding:0;
+    height: fit-content;
 }
 .product-item-container{
     padding:0 16px;
@@ -73,6 +78,7 @@ body{
 .halfChecked{
     color:orange;
 }
+
 .checked{
     font-max-size: 10px;
     color:orange;
@@ -233,7 +239,12 @@ body{
     background-color:white;
     padding:16px;
     margin:0;
+    height: 100%;
+    display:contents;
+}
 
+.filter-brand-search{
+   font-size: 14px;
 }
 .brand-header{
     font-size: 13px;
@@ -241,6 +252,10 @@ body{
     text-transform: uppercase;
     letter-spacing: 0.3px;
     display: inline-block;
+}
+.filter-container-footer{
+    height: 16px;
+    background-color: white;
 }
 
 

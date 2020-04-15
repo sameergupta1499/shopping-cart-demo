@@ -12,7 +12,6 @@ class ProductContainer extends React.Component {
         super(props)
         this.onUpdateProducts=this.onUpdateProducts.bind(this)
     }
-
     componentDidMount() {
         let RequestType = "WebsiteInitialization"
         this.props.onUpdateProducts(this.props.filters.BrandsFilter,this.props.pageDetails,this.props.sort.Sort,RequestType)
@@ -23,11 +22,11 @@ class ProductContainer extends React.Component {
     }
     componentDidUpdate(prevProps){
         //Checking if these props changed their state , to rerender the component and fetch new data.
-        if(prevProps.sort!==this.props.sort || prevProps.pageDetails!==this.props.pageDetails ){
+        if(prevProps.pageDetails!==this.props.pageDetails ){
             let RequestType = "GetProducts"
             this.props.onUpdateProducts(this.props.filters.BrandsFilter,this.props.pageDetails,this.props.sort.Sort,RequestType)
         }
-        if(prevProps.filters!==this.props.filters) { //here we just update the page number so that new filter will show from page 1
+        if(prevProps.sort!==this.props.sort || prevProps.filters!==this.props.filters) { //here we just update the page number so that new filter and short will show from page 1
             this.props.onUpdatePageState(1)
         }
     }
