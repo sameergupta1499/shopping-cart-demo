@@ -41,7 +41,10 @@ class FilterItem extends React.Component {
 
         return (
                 <li className="brand-list-group-item" style={{listStyleType : "none"}} onClick={()=>this.onUpdateBrandList(this.props.item)}>
-                    <input type="checkbox" value={this.props.item} checked={this.isBrandAdded(this.props.item)} onChange={()=>console.log("clickedDummy")}/>{this.props.item}
+                    <span className={this.isBrandAdded(this.props.item)===true?"tick-brand-checkbox":"un-tick-brand-checkbox"}>
+                        <span display={this.isBrandAdded(this.props.item)===true?"block":"none"}></span>
+                    </span>
+                    <div className="brand-list-text">{this.props.item}</div>
                 </li>
         )
     }
