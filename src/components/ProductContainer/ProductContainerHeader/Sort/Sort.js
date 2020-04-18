@@ -4,9 +4,9 @@ import {connect} from "react-redux";
 
 function getClass(sortType,sort){
     if(sort===sortType){
-        return "nav-link active"
+        return "active"
     }
-    return "nav-link"
+    return ""
 }
 
 class Sort extends React.Component{
@@ -18,13 +18,15 @@ class Sort extends React.Component{
         this.props.onUpdateSort(type)
     }
     render() {
+        //const URLByUser = new URL(window.location.href);
+        //         console.log(URLByUser.toString())
         return (
             <div className="sort-container">
                 <span>Sort By</span>
                 <nav className="nav" id="sort-list">
-                    <a className={getClass("", this.props.sort)} href="/#" onClick={()=>this.props.onUpdateSort("")}>Popularity</a>
-                    <a className={getClass("PriceAscending", this.props.sort)} href="/#" onClick={()=>this.props.onUpdateSort("PriceAscending")}>Price -- Low to High</a>
-                    <a className={getClass("PriceDescending", this.props.sort)} href="/#" onClick={()=>this.props.onUpdateSort("PriceDescending")}>Price -- High to Low</a>
+                    <li className={getClass("", this.props.sort)} onClick={()=>this.props.onUpdateSort("")}>Popularity</li>
+                    <li className={getClass("PriceAscending", this.props.sort)}  onClick={()=>this.props.onUpdateSort("PriceAscending")}>Price -- Low to High</li>
+                    <li className={getClass("PriceDescending", this.props.sort)} onClick={()=>this.props.onUpdateSort("PriceDescending")}>Price -- High to Low</li>
                 </nav>
             </div>
         )

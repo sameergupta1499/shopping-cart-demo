@@ -1,4 +1,5 @@
-import {DOMAIN_NAME_URL} from './domainNameURL'
+import {SERVER_DOMAIN_URL} from './domainNameURL'
+import {CLIENT_DOMAIN_URL} from "./domainNameURL";
 
 function listToStringFunc(list){
     if(list.length===0){         //checking if the list is empty
@@ -26,13 +27,18 @@ function getCombineSortBrandsList(BrandsFilter,sort){
 }
 
 export default function createProductAPI(BrandsFilter,pageDetails,sort,RequestType) {
-    const myUrlWithParams = new URL(DOMAIN_NAME_URL);
-    myUrlWithParams.searchParams.append("RequestType", RequestType);
+    const myUrlWithParams = new URL(SERVER_DOMAIN_URL);
+    myUrlWithParams.searchParams.append("CurrentPage", pageDetails.CurrentPage);
+    myUrlWithParams.searchParams.append("BrandsFilter", listToStringFunc(BrandsFilter));
     let filters = getCombineSortBrandsList(BrandsFilter, sort)
     myUrlWithParams.searchParams.append("Filters", listToStringFunc(filters));
-    myUrlWithParams.searchParams.append("BrandsFilter", listToStringFunc(BrandsFilter));
-    myUrlWithParams.searchParams.append("CurrentPage", pageDetails.CurrentPage);
+    myUrlWithParams.searchParams.append("RequestType", RequestType);
     myUrlWithParams.searchParams.append("ProductPerPage", pageDetails.ProductPerPage);
-
+    const params = myUrlWithParams.searchParams;
+    //console.log(myUrlWithParams.toString())
+    //console.log(`?${params.toString()}`)
+    window.history.replaceState("", "", CLIENT_DOMAIN_URL+ `?${params.toString()}`);
+    //window.location.hash = `?${params.toString()}`;
+    //console.log(params.get("Filters"))
     return myUrlWithParams
 }

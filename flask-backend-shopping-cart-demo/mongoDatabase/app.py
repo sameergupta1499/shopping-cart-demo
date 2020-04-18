@@ -14,7 +14,7 @@ def checkDBExist(client):
 
 def requestDB(requestDict):
     # connection to the mongodb.com cluster
-    #print(type(requestDict))
+    #print(requestDict)
     client = MongoClient(mongoDBURI)  # add your db string
     checkDBExist(client)              #create db if doesn't exists
     shoppingDB = client["shopping-cart-db"]

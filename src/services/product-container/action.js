@@ -6,9 +6,7 @@ import {showSpinner,hideSpinner} from '../Spinner/action'
 export const fetchProducts = (BrandsFilter,pageDetails,sort,RequestType) => dispatch => {
     let APIURL= createProductAPI(BrandsFilter,pageDetails,sort,RequestType)      //to construct APIURL that with the current state of the site
     //console.log(pageDetails.CurrentPage)
-    const params = APIURL.searchParams;
-    window.location.hash = `?${params.toString()}`;
-    console.log(window.location.hash)
+    //console.log(window.location.hash)
     dispatch(showSpinner())       //changing state of loadingState state to true , this will display the spinner on the screen
     //console.log("show spinner")
   return axios

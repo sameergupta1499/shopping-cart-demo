@@ -45,8 +45,8 @@ li{
 /*----------------------------------------------------------------------------------------------------------------------------*/
 
 main.container-fluid{
-    margin-left:7%;
-    margin-right: 7%;
+    margin-left:5%;
+    margin-right: 5%;
     width:auto;
     padding-top: 70px;
     padding-bottom: 14px;
@@ -184,14 +184,15 @@ main.container-fluid{
 }
 #sort-list {
     display: inline;
+    cursor: pointer;
 }
-#sort-list a{
+#sort-list li{
     display:inline;
     color:black;
-    padding-right:0!important;
-    padding-right:30px;
+    padding:0;
+    margin-left: 16px;
 }
-#sort-list a.nav-link.active{
+#sort-list li.active{
     color:#2874f0;
     border-bottom: 2px solid #2874f0;
     padding-bottom: 5px;
