@@ -1,15 +1,19 @@
 import React from 'react';
 import ProductContainer from '../ProductContainer/ProductContainer';
 import FilterContainer from "../Filter/FilterContainer";
+import Header from "../Header/Header"
+import Footer from "../Footer/Footer"
 
 const App = () => (
   <React.Fragment>
-    <main className={"container-fluid"}>
+      <Header/>
+    <main className="container-fluid">
         <div className={"row"}>
         <FilterContainer/>
         <ProductContainer/>
         </div>
     </main>
+      <Footer/>
   </React.Fragment>
 );
 
@@ -27,6 +31,7 @@ import Filter from '../Filter'
 const App = () => (
   <React.Fragment>
     <GithubCorner />
+
     <main>
       <Filter />
       <ProductContainer />

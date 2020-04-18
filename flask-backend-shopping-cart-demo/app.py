@@ -17,10 +17,6 @@ def initializeRequestDict(args):
     return requestDict
 
 
-@app.route('/', methods=('GET', 'POST'))
-def home():
-    return jsonify(requestDB(requestDictConst))
-
 
 @app.route('/Products/Phone', methods=('GET', 'POST'))
 def func():
