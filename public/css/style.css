@@ -16,7 +16,6 @@ li{
 .app-header{
     box-shadow: 0 4px 12px 0 rgba(0,0,0,.32);
     background: #3bd155;
-    color: #fff;
     min-height: 56px;
     padding: 8px 0;
     position: fixed;
@@ -24,7 +23,15 @@ li{
     z-index: 9999;
     transform: translateZ(0);
 }
-
+.app-header-icon-container{
+    margin:0;
+    margin-left: 5%;
+    padding:0;
+}
+.app-header-icon-container i{
+    font-size:40px;
+    color:white;
+}
 
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
