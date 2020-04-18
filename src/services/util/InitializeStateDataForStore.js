@@ -23,7 +23,7 @@ function getSortName(params){
 
 export default function initialState(){
     const URLByUser = new URL(window.location.href);     //input url by the user
-    console.log(URLByUser)
+    //console.log(URLByUser)
     const params = URLByUser.searchParams;
     //console.log(params.get("CurrentPage")===null?"null hai ":"data hai be")       //to get value of particular paramater
     let initialURLParams = `?${params.toString()}`

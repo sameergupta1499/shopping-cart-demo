@@ -34,10 +34,6 @@ export default function createProductAPI(BrandsFilter,pageDetails,sort,RequestTy
     myUrlWithParams.searchParams.append("Filters", listToStringFunc(filters));
     myUrlWithParams.searchParams.append("RequestType", RequestType);
     myUrlWithParams.searchParams.append("ProductPerPage", pageDetails.ProductPerPage);
-    const params = myUrlWithParams.searchParams;
-    //console.log(myUrlWithParams.toString())
-    //console.log(`?${params.toString()}`)
-    window.history.replaceState("", "", CLIENT_DOMAIN_URL+ `?${params.toString()}`);
     //window.location.hash = `?${params.toString()}`;
     //console.log(params.get("Filters"))
     return myUrlWithParams

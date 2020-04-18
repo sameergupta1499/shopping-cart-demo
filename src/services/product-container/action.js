@@ -2,9 +2,14 @@ import {FETCH_PRODUCTS} from "./actionTypes";
 import axios from 'axios';
 import createProductAPI from '../util/createProductAPI'
 import {showSpinner,hideSpinner} from '../Spinner/action'
+import {CLIENT_DOMAIN_URL} from "../util/domainNameURL";
 
 export const fetchProducts = (BrandsFilter,pageDetails,sort,RequestType) => dispatch => {
     let APIURL= createProductAPI(BrandsFilter,pageDetails,sort,RequestType)      //to construct APIURL that with the current state of the site
+    const params = APIURL.searchParams;
+    //console.log(myUrlWithParams.toString())
+    //console.log(`?${params.toString()}`)
+    window.history.replaceState("", "", CLIENT_DOMAIN_URL+ `?${params.toString()}`);
     //console.log(pageDetails.CurrentPage)
     //console.log(window.location.hash)
     dispatch(showSpinner())       //changing state of loadingState state to true , this will display the spinner on the screen
