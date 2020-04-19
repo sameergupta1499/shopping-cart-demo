@@ -84,8 +84,5 @@ with open('export.json',  'w') as outfile:
     #write json data into dataset.json file(it creates new json file)
     json.dump(responseDict,outfile,indent=1)
 #################################delete after development completed####################################
-
-
 print("The database exists.")
-
 """

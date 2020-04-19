@@ -1,13 +1,53 @@
 /*----------------------------------------------------------------------------------------------------------------------------*/
 /*----------------------------------------------------- BODY ----------------------------------------------------------------*/
-/*----------------------------------------------------------------------------------------------------------------------------*/
+/*----------- -----------------------------------------------------------------------------------------------------------------*/
 
+html,body{
+    height:100%;
+}
 body{
+  margin: 0;
     background-color: #f1f3f6;
+    --footer-height:150px;
+    --footer-height-negative:-150px;
+
 }
 li{
     cursor:pointer;
+    list-style: none
 }
+#root{
+    height: 100%;
+    /*background-color: #aca5a5;*/
+}
+
+/*----------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------- WRAPPER container -----------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------*/
+.wrapper{
+    min-height:100%;
+    display: block;
+    padding-bottom: var(--footer-height);
+    /*background-color: greenyellow;*/
+}
+
+
+/*----------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------- MAIN container -----------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------*/
+
+
+main.container-fluid{
+    /*background-color: blue;*/
+    margin-left:5%;
+    margin-right: 5%;
+    width:auto;
+    padding-top: 20px;
+    padding-bottom: 14px;
+}
+
+
+
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------- HEADER container -----------------------------------------------------*/
@@ -22,29 +62,114 @@ li{
     width: 100%;
     z-index: 9999;
     transform: translateZ(0);
+
 }
+.site-logo-container{
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin-left: 5%;
+    float: left;
+}
+.site-logo-container a:hover{
+    text-decoration: none;
+}
+
 .app-header-icon-container{
     margin:0;
-    margin-left: 5%;
+
+    display:inline-block;
     padding:0;
+    text-shadow: -2px 1px black;
 }
 .app-header-icon-container i{
     font-size:40px;
     color:white;
-}
 
+}
+.app-header-text-container{
+    width: fit-content;
+    display: inline-block;
+    line-height: 1;
+    font-weight: 600;
+    margin-left: 8px;
+    text-shadow: -2px 1px black;
+}
+.app-header-text-container p{
+    color:white;
+    margin:0;
+}
+.about-developer-container{
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    margin-right: 5%;
+    float: right;
+}
+.about-developer-container a:hover{
+    text-decoration: none;
+}
 
 /*------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------- FOOTER container -----------------------------------------------------*/
 /*------------------------------------------------------------------------------------------------------------------------------*/
+.push {
+  min-height: var(--footer-height)x;
+}
+.wrapper{
+    margin-bottom:var(--footer-height-negative);
+}
 
 .app-footer{
-    box-shadow: 0 4px 12px 0 rgba(0,0,0,.32);
+    cursor: default;
+    box-shadow: 0 0 12px 4px rgba(0,0,0,.32);
+    font-size: 15px;
     background: #0b2f11;
     color: #fff;
-    min-height: 100px;
-    padding: 8px 0 0 0;
+    min-height: var(--footer-height);
+    padding:0 5% 0 5%;
+    /*padding: 8px 0 0 0;*/
     width: 100%;
+}
+
+.app-footer-container{
+    height: 100%;
+    width: 100%;
+    padding: 2px 0 8px;
+    color:#d7d4d4
+}
+
+.footer-heading{
+    font-weight: 600;
+    text-shadow: -2px 2px 0px black;
+    margin:0;
+    padding:0;
+    color: white;
+    font-size: 16px;
+}
+.app-footer-container .row{
+    line-height: 1.2;
+    font-size:15px;
+}
+
+.content-ul{
+    padding:0;
+    margin:0;
+    font-size: 13px;
+    cursor:none;
+}
+.content-ul ul{
+    padding-left: 12px;
+    font-size: 12px;
+    color: #b6b8b1;
+}
+
+.technologies-used li{
+    padding:0;
+    margin-left: 6px;
+}
+.upcoming-updates{
+    border-left: 1px solid #414141;
 }
 
 /*----------------------------------------------------------------------------------------------------------------------------*/
@@ -492,8 +617,8 @@ main.container-fluid{
     opacity: 0.8;
     top: 0;
     bottom:0;
-    margin-left: -7%;
-    margin-right:-7%;
+    margin-left: -5%;
+    margin-right:-5%;
     width: 100%;
     height: 100%;
     z-index: 10;

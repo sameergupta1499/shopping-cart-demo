@@ -25,7 +25,7 @@ def initializeRequestDict(args):
 @app.route('/Products/Phone', methods=('GET', 'POST'))
 def func():
     try:                    #to check if the URL entered by user contains incorrect filter
-        print(request)
+        #print(request)
         return jsonify(requestDB(initializeRequestDict(request.args)))
     except:
         return jsonify(requestDB(requestDictConst))

@@ -5,19 +5,19 @@ import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 
 const App = () => (
-  <React.Fragment>
-      <Header/>
-    <main className="container-fluid">
-        <div className={"row"}>
-        <FilterContainer/>
-        <ProductContainer/>
+    <React.Fragment>
+        <div className="wrapper">
+            <Header/>
+            <main className="container-fluid">
+                <div className={"row"}>
+                    <FilterContainer/>
+                    <ProductContainer/>
+                </div>
+            </main>
         </div>
-    </main>
-      <Footer/>
-  </React.Fragment>
+        <Footer/>
+    </React.Fragment>
 );
-
-
 
 
 /* Final Setup
