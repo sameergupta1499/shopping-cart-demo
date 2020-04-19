@@ -6,9 +6,6 @@ import ProductContainerHeader from "./ProductContainerHeader/ProductContainerHea
 import Spinner from "../Spinnner/Spinner"
 import {updatePageState} from "../../services/page/action"
 import PaginationContainer from "./PaginationContainer/PaginationContainer";
-import { Redirect } from 'react-router-dom'
-import createProductAPI from '../../services/util/createProductAPI'
-
 
 class ProductContainer extends React.Component {
     constructor(props){
@@ -27,12 +24,7 @@ class ProductContainer extends React.Component {
         //Checking if these props changed their state , to rerender the component and fetch new data.
         if(prevProps.pageDetails!==this.props.pageDetails ){
             let RequestType = "GetProducts"
-            let routeURL = createProductAPI(this.props.filters.BrandsFilter,this.props.pageDetails,this.props.sort.Sort,RequestType)
-            const params = routeURL.searchParams;
-            let routeURLParams = `?${params.toString()}`
-            window.location.assign(routeURLParams)
-            console.log(routeURLParams)
-            //this.props.onUpdateProducts(this.props.filters.BrandsFilter,this.props.pageDetails,this.props.sort.Sort,RequestType)
+            this.props.onUpdateProducts(this.props.filters.BrandsFilter,this.props.pageDetails,this.props.sort.Sort,RequestType)
         }
         if(prevProps.sort!==this.props.sort || prevProps.filters!==this.props.filters) { //here we just update the page number so that new filter and short will show from page 1
             this.props.onUpdatePageState(1)
@@ -42,7 +34,6 @@ class ProductContainer extends React.Component {
         //console.log("inside product container component")
         return (
             <>
-
                 {this.props.loadingState.LoadingState && <Spinner />}
                 <div className="product-container col-sm-9">
                     <ProductContainerHeader totalProducts={this.props.products.TotalProducts} sort={this.props.sort.Sort} pageDetails={this.props.pageDetails}/>
