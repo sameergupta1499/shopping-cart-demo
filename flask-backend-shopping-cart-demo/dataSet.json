@@ -1,0 +1,113 @@
+[
+ {
+  "Product_name": "Amul Taza",
+  "Brand_name": "Amul",
+  "Weight": "1L",
+  "Quantity": 0,
+  "Product_img": "https://images-na.ssl-images-amazon.com/images/I/71TSXjY7SZL._SL1175_.jpg",
+  "Product_price": 54.0,
+  "Product_MRP": 60.0,
+  "Product_discount": 10,
+  "_id": 0
+ },
+ {
+  "Product_name": "Amul Gold Milk - Homogenised Standardised",
+  "Brand_name": "Amul",
+  "Weight": "1L",
+  "Quantity": 0,
+  "Product_img": "https://images-na.ssl-images-amazon.com/images/I/71b0D5QmWFL._SL1500_.jpg",
+  "Product_price": 92.0,
+  "Product_MRP": 100.0,
+  "Product_discount": 8,
+  "_id": 1
+ },
+ {
+  "Product_name": "Nestle a+ Nourish Toned Milk",
+  "Brand_name": "Nestle",
+  "Weight": "500ml",
+  "Quantity": 0,
+  "Product_img": "https://images-na.ssl-images-amazon.com/images/I/71bh-zjkwnL._SL1500_.jpg",
+  "Product_price": 63.0,
+  "Product_MRP": 70.0,
+  "Product_discount": 10,
+  "_id": 2
+ },
+ {
+  "Product_name": "Go Supremo Milk",
+  "Brand_name": "GO",
+  "Weight": "1L",
+  "Quantity": 0,
+  "Product_img": "https://images-na.ssl-images-amazon.com/images/I/41EtFgosKqL.jpg",
+  "Product_price": 48.0,
+  "Product_MRP": 50.0,
+  "Product_discount": 4,
+  "_id": 3
+ },
+ {
+  "Product_name": "Dukes Truffel Milk",
+  "Brand_name": "Duke",
+  "Weight": "480g",
+  "Quantity": 0,
+  "Product_img": "https://images-na.ssl-images-amazon.com/images/I/71bBOHJpe7L._SL1500_.jpg",
+  "Product_price": 176.0,
+  "Product_MRP": 200.0,
+  "Product_discount": 12,
+  "_id": 4
+ },
+ {
+  "Product_name": "Milky Mist Pouch Curd",
+  "Brand_name": "Milky Mist",
+  "Weight": "500g",
+  "Quantity": 0,
+  "Product_img": "https://images-na.ssl-images-amazon.com/images/I/51%2B447ySDhL.jpg",
+  "Product_price": 28.0,
+  "Product_MRP": 35.0,
+  "Product_discount": 20,
+  "_id": 5
+ },
+ {
+  "Product_name": "Epigamia Blueberry Greek Yogurt",
+  "Brand_name": "Epigamia",
+  "Weight": "90g",
+  "Quantity": 0,
+  "Product_img": "https://images-na.ssl-images-amazon.com/images/I/61nvVAA2hhL._SL1460_.jpg",
+  "Product_price": 40.5,
+  "Product_MRP": 45.0,
+  "Product_discount": 10,
+  "_id": 6
+ },
+ {
+  "Product_name": "Amul Butter - Pasteurised",
+  "Brand_name": "Amul",
+  "Weight": "100g",
+  "Quantity": 0,
+  "Product_img": "https://images-na.ssl-images-amazon.com/images/I/715XDBQH2aL._SL1500_.jpg",
+  "Product_price": 49.0,
+  "Product_MRP": 50.0,
+  "Product_discount": 2,
+  "_id": 7
+ },
+ {
+  "Product_name": "Raw Pressery Almond Milk, Plain Unsweetened",
+  "Brand_name": "Raw Pressery",
+  "Weight": "1L",
+  "Quantity": 0,
+  "Product_img": "https://images-na.ssl-images-amazon.com/images/I/51E%2BN5D01tL._SL1000_.jpg",
+  "Product_price": 285.0,
+  "Product_MRP": 300.0,
+  "Product_discount": 5,
+  "_id": 8
+ },
+ {
+  "Product_name": "Milky Mist Paneer",
+  "Brand_name": "Milky Mist",
+  "Weight": "200g",
+  "Quantity": 0,
+  "Product_img": "https://images-na.ssl-images-amazon.com/images/I/51AM4q1MFKL.jpg",
+  "Product_price": 81.0,
+  "Product_MRP": 90.0,
+  "Product_discount": 10,
+  "_id": 9
+ }
+]
+

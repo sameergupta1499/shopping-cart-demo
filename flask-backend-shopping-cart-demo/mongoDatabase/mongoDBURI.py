@@ -1,0 +1,1 @@
+mongoDBURI="mongodb+srv://sameergupta1499:sam673185@cluster0-o81jx.mongodb.net/test?retryWrites=true&w=majority"
